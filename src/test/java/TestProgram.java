@@ -1,5 +1,5 @@
 import dto.Employee;
-import dto.bootstrap.DataGenerator;
+import bootstrap.DataGenerator;
 import implementation.EmployeeServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
@@ -36,12 +36,30 @@ public class TestProgram {
     }
     @Test
     public void testMonthResult(){
-        String expectedMonth="March";
+      //  System.out.println(employeeService.getEmployees());
+        String expectedMonth="August";
         List<Employee> employeesBirthDateInMarch = employeeService.getEmployeeBirthDateInMonth(expectedMonth);
 
         for (Employee employee : employeesBirthDateInMarch) {
             Assert.assertEquals(expectedMonth.toLowerCase(), employee.getBirthDate().getMonth().toString().toLowerCase());
         }
+
+        System.out.println(employeesBirthDateInMarch);
+
+    }
+
+    @Test
+    public void testDeleteMethod(){
+        int expectedResult = employeeService.getEmployees().size()-1;
+        System.out.println(employeeService.getEmployees());
+        System.out.println("========================");
+        employeeService.delete(2L);
+        System.out.println(employeeService.getEmployees());
+        int actualResult = employeeService.getEmployees().size();
+
+        System.out.println("expectedResult = " + expectedResult);
+        System.out.println("actualResult = " + actualResult);
+        Assert.assertEquals(expectedResult, actualResult);
 
     }
 }

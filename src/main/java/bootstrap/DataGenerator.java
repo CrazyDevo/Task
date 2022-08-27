@@ -1,4 +1,4 @@
-package dto.bootstrap;
+package bootstrap;
 
 import com.github.javafaker.Faker;
 import dto.Employee;

@@ -23,6 +23,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public void delete(Long id) {
+        employees.removeIf(e -> e.getId() == id);
+    }
+
+    @Override
     public List<Employee> getEmployeeBirthDateInMonth(String month) {
       List<Employee> result=new ArrayList<>();
 
