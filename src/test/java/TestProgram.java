@@ -14,19 +14,20 @@ public class TestProgram {
     EmployeeService employeeService=new EmployeeServiceImpl();
     @Before
     public void generateEmployee(){
+
         DataGenerator.generateEmployee();
     }
 
 
     @Test
-    public void testAddMethod(){
+    public void testAddEmployeeMethod(){
 
 
 
         for (Employee employee : employeeService.getEmployees()) {
             System.out.println(employee);
         }
-        int expectedResult = employeeService.getEmployees().size() + 1;
+        int expectedResult = employeeService.getEmployees().size() + 1; //12
         Employee employee=new Employee(1L,"Adam", "Dev",LocalDate.of(1989, 1, 14));
         employeeService.add(employee);
        int actualResult= employeeService.getEmployees().size();
@@ -38,13 +39,13 @@ public class TestProgram {
     public void testMonthResult(){
       //  System.out.println(employeeService.getEmployees());
         String expectedMonth=LocalDate.now().getMonth().toString();
-        List<Employee> employeesBirthDateInMarch = employeeService.getEmployeeBirthDateInMonth(expectedMonth);
+        List<Employee> employeesBirthDateInCurrentMonth = employeeService.getEmployeeBirthDateInMonth(expectedMonth);
 
-        for (Employee employee : employeesBirthDateInMarch) {
+        for (Employee employee : employeesBirthDateInCurrentMonth) {
             Assert.assertEquals(expectedMonth.toLowerCase(), employee.getBirthDate().getMonth().toString().toLowerCase());
         }
 
-        System.out.println(employeesBirthDateInMarch);
+        System.out.println(employeesBirthDateInCurrentMonth);
 
     }
 

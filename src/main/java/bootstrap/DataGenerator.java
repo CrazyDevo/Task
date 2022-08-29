@@ -6,14 +6,12 @@ import implementation.EmployeeServiceImpl;
 import service.EmployeeService;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Random;
 
 public class DataGenerator {
     public static void generateEmployee(){
 
 
-            Employee employee=new Employee(1L,"Adam", "Dev",LocalDate.of(1989, 1, 14));
+            Employee employee=new Employee(1L,"Fatih", "Dev",LocalDate.of(1989, 1, 14));
             Employee employee1=new Employee(2L,"Mike", "Dev",LocalDate.of(1989, 2, 14));
             Employee employee2=new Employee(3L,"Can", "Dev",LocalDate.of(1989, 1, 14));
             Employee employee3=new Employee(4L,"Savcı", "QA",LocalDate.of(1989, 10, 14));
