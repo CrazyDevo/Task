@@ -37,7 +37,7 @@ public class TestProgram {
     @Test
     public void testMonthResult(){
       //  System.out.println(employeeService.getEmployees());
-        String expectedMonth="August";
+        String expectedMonth=LocalDate.now().getMonth().toString();
         List<Employee> employeesBirthDateInMarch = employeeService.getEmployeeBirthDateInMonth(expectedMonth);
 
         for (Employee employee : employeesBirthDateInMarch) {
